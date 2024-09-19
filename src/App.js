@@ -1,7 +1,9 @@
+import AvailabilityCalendar from "./components/Calendar/AvailabilityCalendar";
+
 function App() {
   return (
     <div className="App">
-      Reservation System
+      <AvailabilityCalendar/>
     </div>
   );
 }
