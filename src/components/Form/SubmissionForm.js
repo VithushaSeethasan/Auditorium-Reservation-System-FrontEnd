@@ -36,6 +36,7 @@ const ApplicationForm = () => {
     ticketSalesAtPremises: '',
     security: '',
     agreed: false,
+    username:''
   });
 
   const [errors, setErrors] = useState({});
@@ -108,6 +109,10 @@ const ApplicationForm = () => {
     if (validate()) {
       try {
         console.log('Form submitted', formData);
+
+        const userName = localStorage.getItem("userName");
+        formData.username = userName
+        console.log(formData.username)
 
         const response = await axios.post('http://localhost:8080/reservation/submit-form', formData,
           {
