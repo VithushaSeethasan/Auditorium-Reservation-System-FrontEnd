@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom'; 
 import Header from './components/Header';
@@ -8,6 +9,20 @@ import NotificationPage from './components/StatusMessages';
 import BookingPage from './components/Booking'; 
 import EventPage from './components/EventCalendar'; 
 import './App.css';
+=======
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+
+import PaymentWorkFlow from './components/PaymentWorkFlow/PaymentWorkFlow'; 
+import Payment from './components/PaymentWorkFlow/Payment'; 
+import SignIn from './components/Auth/SignIn'
+import Form from './components/Form/SubmissionForm'     
+import Notification from './components/Notification/Notification'    
+
+const stripePromise = loadStripe('pk_test_51NTgKRAaWvD0FBmzmVquePz9uFILsjLUYey7pNiY4zIiKVyuzhYAPMdWg7USuiUujmsRvNUC1H14x666RiZKa53g00xLyoEIOj');
+>>>>>>> b516fea45b9be30f6581daef599c596592710621
 
 function App() {
   // State to track the active section
@@ -35,6 +50,7 @@ function App() {
   }
 
   return (
+<<<<<<< HEAD
     <Router> {/* Wrap your app with the Router */}
       <div className="app">
         <Header />
@@ -48,6 +64,24 @@ function App() {
 
         <Footer />
       </div>
+=======
+    <Router>
+      <Routes>
+        <Route path="/payment" element={<PaymentWorkFlow />} />
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/form" element={<Form />} />
+        <Route path="/noti" element={<Notification />} />
+
+        <Route
+          path="/payment/:reservationId/:amount/:paymentType"
+          element={
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
+          }
+        />
+      </Routes>
+>>>>>>> b516fea45b9be30f6581daef599c596592710621
     </Router>
   );
 }
