@@ -9,7 +9,7 @@ function Booking() {
     <div className="app-cont">
       <div className="cont">
        
-     
+
 
         <div className="availability-section" style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover' }}>
           <div className="card-background">
